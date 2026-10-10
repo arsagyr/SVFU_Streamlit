@@ -1,0 +1,13 @@
+services:
+  svfu-notes:
+    build: .
+    image: svfu-streamlit:latest
+    container_name: svfu-streamlit
+    ports:
+      - "8501:8501"
+    volumes:
+      - ./data:/app/data
+    environment:
+      WHISPER_MODEL: small
+      # WHISPER_LANGUAGE: ru   # можно зафиксировать язык распознавания
+    restart: unless-stopped
